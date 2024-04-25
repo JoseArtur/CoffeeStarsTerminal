@@ -14,7 +14,7 @@ class MainViewModel @Inject constructor(
     private val repo: MainRepo
 ):ViewModel() {
 
-    private val _state = MutableStateFlow(QRDataState())
+    private val _state = MutableStateFlow(MainScreenState())
     val state = _state.asStateFlow()
 
 
@@ -22,12 +22,8 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
              repo.startScanning().collect{
                 if (!it.isNullOrBlank()){
-                    val qrData = repo.transformQRCodeData(it)
                     _state.value = state.value.copy(
-                        orderItems = qrData.orderItems,
-                        paymentMethod = qrData.paymentMethod,
-                        vouchersUsed = qrData.vouchersUsed,
-                        totalCost = qrData.totalCost
+                        details = it
                     )
                 }
             }

@@ -1,8 +1,6 @@
 package com.akash.mybarcodescanner.data.repo
 
 import com.akash.mybarcodescanner.domain.repo.MainRepo
-import com.akash.mybarcodescanner.presentation.QRDataState
-import com.google.gson.Gson
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
 import kotlinx.coroutines.channels.awaitClose
@@ -30,9 +28,7 @@ class MainRepoImpl @Inject constructor(
         }
 
     }
-    override fun transformQRCodeData(json: String): QRDataState {
-        return Gson().fromJson(json, QRDataState::class.java)
-    }
+
 
 
     private fun getDetails(barcode: Barcode): String {

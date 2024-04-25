@@ -15,6 +15,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
 
     val state = viewModel.state.collectAsState()
 
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -22,17 +23,10 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .weight(0.5f),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(text = "Order Items: ${state.value.orderItems.joinToString { it.foodName }}")
-            Text(text = "Payment Method: ${state.value.paymentMethod.pName}")
-            Text(text = "Vouchers Used: ${state.value.vouchersUsed.joinToString { it.voucherName }}")
-            Text(text = "Total Cost: ${state.value.totalCost}")
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .weight(0.5f), contentAlignment = Alignment.Center) {
+            Text(text =  state.value.details )
         }
 
         Box(modifier = Modifier
@@ -42,5 +36,9 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                 Text(text = "start scanning")
             }
         }
+
+
     }
+
+
 }
