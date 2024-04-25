@@ -1,7 +1,7 @@
-package com.akash.mybarcodescanner.di
+package com.starscoffee.terminal.di
 
-import com.akash.mybarcodescanner.data.repo.MainRepoImpl
-import com.akash.mybarcodescanner.domain.repo.MainRepo
+import com.starscoffee.terminal.data.repo.MainRepoImpl
+import com.starscoffee.terminal.domain.repo.MainRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

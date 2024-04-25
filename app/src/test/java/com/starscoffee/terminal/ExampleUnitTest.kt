@@ -1,4 +1,4 @@
-package com.akash.mybarcodescanner
+package com.starscoffee.terminal
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.akash.mybarcodescanner
+package com.starscoffee.terminal
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

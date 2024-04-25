@@ -1,4 +1,4 @@
-package com.akash.mybarcodescanner.ui.theme
+package com.starscoffee.terminal.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
