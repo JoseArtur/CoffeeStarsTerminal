@@ -30,9 +30,11 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel(),navController: NavCont
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            //user email
+            Text(text = "User Email: ${state.value.userEmail}")
             Text(text = "Order Items: ${state.value.orderItems.joinToString { it.foodName }}")
             Text(text = "Payment Method: ${state.value.paymentMethod.pName}")
-            Text(text = "Vouchers Used: ${state.value.vouchersUsed.joinToString { it.voucherName }}")
+            Text(text = "Vouchers Used: ${state.value.vouchersUsed.joinToString { it.name }}")
             Text(text = "Total Cost: ${state.value.totalCost}")
         }
 
@@ -46,8 +48,12 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel(),navController: NavCont
             Button(onClick = { viewModel.startScanning() }) {
                 Text(text = "Start Scanning")
             }
-            Button(onClick = { viewModel.validateOrder()
-                navController.navigate("order_screen/${state.value.orderNumber.toString().padStart(10, '0')}")
+            Button(onClick = { if(viewModel.validateOrder()){
+
+                 navController.navigate("order_screen/${state.value.orderNumber.toString().padStart(10, '0')}")
+
+            }
+
             }) {
                 Text(text = "Validate Order")
             }

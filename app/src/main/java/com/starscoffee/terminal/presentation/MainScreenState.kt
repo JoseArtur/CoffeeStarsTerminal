@@ -8,25 +8,27 @@ data class QRDataState (
     val orderItems: List<Foods> = emptyList(),
     val paymentMethod: PaymentChannels = PaymentChannels(0, "", 0),
     val vouchersUsed: List<Voucher> = emptyList(),
-    val totalCost: String = ""
+    val totalCost: String = "",
+    val userEmail : String = "",
+    val json : String = ""
 )
 
 data class Voucher (
     val id: Int,
     val pointsRequired: Int,
-    @SerializedName("voucherName")
-    var voucherName: String,
+    @SerializedName("name")
+    var name: String,
     @SerializedName("description")
     var description: String,
     @SerializedName("value")
-    var value: Int,
+    var value: Float,
     @SerializedName("image_url")
     var image_url: String,
     @SerializedName("type")
     var type: String,
     @SerializedName("restaurant")
     var restaurant: Int = -1,
-    var isAvailable: Int = 1
+    var isAvailable: Boolean = false
 ) : Serializable
 
 
@@ -37,7 +39,7 @@ data class Foods(
     @SerializedName("description")
     var description: String,
     @SerializedName("price")
-    var price: Int,
+    var price: Float,
     @SerializedName("image_url")
     var image_url: String,
     var isFavorite: Int = 0,
